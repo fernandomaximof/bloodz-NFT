@@ -1,5 +1,6 @@
 # RINKEBY CONTRACT DEPLOYED
-```https://rinkeby.etherscan.io/address/0x4adb88ec32a230537e60575fe449b8b5ac096f55```
+https://rinkeby.etherscan.io/address/0x4adb88ec32a230537e60575fe449b8b5ac096f55
+https://testnets.opensea.io/collection/bloodznft-v2
 
 # COMPILING CONTRACT
 ```npx hardhat compile```
