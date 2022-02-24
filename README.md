@@ -1,3 +1,6 @@
+# RINKEBY CONTRACT DEPLOYED
+```https://rinkeby.etherscan.io/address/0x4adb88ec32a230537e60575fe449b8b5ac096f55```
+
 # COMPILING CONTRACT
 ```npx hardhat compile```
 
@@ -20,7 +23,7 @@
 ```npx ipfs-car --pack metadata --output metadata.car```
 
 # SETTING URI FOR NFT
-```npx hardhat set-base-token-uri --base-url "https://bafybeifoozoeppnm6cb652v2aleqvovr2iqr5wuqtoe2yvhydngr4r6kda.ipfs.dweb.link/metadata/"```
+```npx hardhat set-base-token-uri --base-url "https://bafybeigltvlkymkzxo5q2eyxnelru3vfhxtsadyyyzgtsypqd2deneqgsa.ipfs.dweb.link/metadata/"```
 
 # MITING NFT
 ```npx hardhat mint --address [address]```
