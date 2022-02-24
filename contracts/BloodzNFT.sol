@@ -12,7 +12,7 @@ contract BloodzNFT is ERC721, PullPayment, Ownable {
 
   // Constants
   uint256 public constant TOTAL_SUPPLY = 10_000;
-  uint256 public constant MINT_PRICE = 0.08 ether;
+  //uint256 public constant MINT_PRICE = 0.08 ether;
 
   Counters.Counter private currentTokenId;
 
@@ -23,10 +23,10 @@ contract BloodzNFT is ERC721, PullPayment, Ownable {
     baseTokenURI = "";
   }
 
-  function mintTo(address recipient) public payable returns (uint256) {
+  function mintTo(address recipient) public payable onlyOwner returns (uint256) {
     uint256 tokenId = currentTokenId.current();
     require(tokenId < TOTAL_SUPPLY, "MAX SUPPLY REACHED");
-    require(msg.value == MINT_PRICE, "TRANSACTION VALUE DID NOT EQUAL THE MINT PRICE");
+    //require(msg.value == MINT_PRICE, "TRANSACTION VALUE DID NOT EQUAL THE MINT PRICE");
 
     currentTokenId.increment();
     uint256 newItemId = currentTokenId.current();
@@ -47,6 +47,10 @@ contract BloodzNFT is ERC721, PullPayment, Ownable {
 
   /// @dev Overridden in order to make it an onlyOwner function
   function withdrawPayments(address payable payee) public override onlyOwner virtual {
-      super.withdrawPayments(payee);
+    super.withdrawPayments(payee);
+  }
+
+  function destroyContract() public onlyOwner{
+    selfdestruct(payable(msg.sender));
   }
 }

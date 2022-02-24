@@ -1,11 +1,5 @@
 {
     "name": "THE RABBIT TOY",
     "description": "",
-    "image": "https://ipfs.io/ipfs/bafybeicp2rv6ykmtx2ngi2z645iypzxzbgzdycjmnyyn2zkg4imhejghjq/images/1.jpeg",
-    "attributes": [
-        {
-            "trait_type": "NAME",
-            "value": "MEL"
-        }
-    ]
+    "image": "https://ipfs.io/ipfs/bafybeidwkas67ia4deduymgmmzeyrdjqnzi2swzorn2bzlxcpoheo24hua/images/1.png"
 }

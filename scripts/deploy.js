@@ -7,7 +7,7 @@ task("check-balance", "PRINTS OUT THE BALANCE OF YOUR ACCOUNT").setAction(async 
 });
 
 task("deploy", "DEPLOYS THE NFT.SOL CONTRACT").setAction(async function (taskArguments, hre) {
-    const BShowerNFT = await hre.ethers.getContractFactory("BShowerNFT", getAccount());
-    const nft = await BShowerNFT.deploy();
+    const BloodzNFT = await hre.ethers.getContractFactory("BloodzNFT", getAccount());
+    const nft = await BloodzNFT.deploy();
     console.log(`CONTRACT DEPLOYED TO ADDRESS: ${nft.address}`);
 });
