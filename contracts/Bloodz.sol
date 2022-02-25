@@ -7,11 +7,11 @@ import "@openzeppelin/contracts/security/PullPayment.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 
-contract BloodzNFT is ERC721, PullPayment, Ownable {
+contract Bloodz is ERC721, PullPayment, Ownable {
   using Counters for Counters.Counter;
 
   // Constants
-  uint256 public constant TOTAL_SUPPLY = 10_000;
+  uint256 public constant TOTAL_SUPPLY = 10;
   //uint256 public constant MINT_PRICE = 0.08 ether;
 
   Counters.Counter private currentTokenId;

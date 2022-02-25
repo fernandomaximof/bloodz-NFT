@@ -1,5 +1,5 @@
 # RINKEBY CONTRACT DEPLOYED
-https://rinkeby.etherscan.io/address/0x4adb88ec32a230537e60575fe449b8b5ac096f55
+https://rinkeby.etherscan.io/address/0xe4655A7bFe616f9f99CB14654Fd490d468c46e58
 https://testnets.opensea.io/collection/bloodznft-v2
 
 # COMPILING CONTRACT
@@ -24,7 +24,7 @@ https://testnets.opensea.io/collection/bloodznft-v2
 ```npx ipfs-car --pack metadata --output metadata.car```
 
 # SETTING URI FOR NFT
-```npx hardhat set-base-token-uri --base-url "https://bafybeigltvlkymkzxo5q2eyxnelru3vfhxtsadyyyzgtsypqd2deneqgsa.ipfs.dweb.link/metadata/"```
+```npx hardhat set-base-token-uri --base-url "https://bafybeihs7yxofqwifxmcf2clce6rcv5frmqtilgzot6ietsdynko4r5zm4.ipfs.dweb.link/metadata/"```
 
 # MITING NFT
 ```npx hardhat mint --address [address]```

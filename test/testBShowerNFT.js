@@ -2,7 +2,7 @@ const { expect } = require("chai");
 //const { BigNumber } = require("ethers");
 // const { ethers } = require("hardhat");
 
-describe("BloodzNFT CONTRACT", function() {
+describe("Bloodz CONTRACT", function() {
     let accounts;
     let bznft
     //let payment = web3.utils.toWei("0.08", "ether").toString();
@@ -10,10 +10,20 @@ describe("BloodzNFT CONTRACT", function() {
     before(async function() {
         accounts = await web3.eth.getAccounts();
 
-        const BloodzNFT = await ethers.getContractFactory("BloodzNFT");
-        bznft = await BloodzNFT.deploy();
+        const Bloodz = await ethers.getContractFactory("Bloodz");
+        bznft = await Bloodz.deploy();
         await bznft.deployed();
 
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment});
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[2], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment});
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
+        await bznft.mintTo(accounts[2], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment});
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
