@@ -7,11 +7,12 @@ describe("Bloodz CONTRACT", function() {
     var bznft;
     var owner
     var addr1;
+    var addr2;
     //let payment = web3.utils.toWei("0.08", "ether").toString();
   
     before(async function() {
         accounts = await web3.eth.getAccounts();
-        [owner, addr1] = await ethers.getSigners();
+        [owner, addr1, addr2] = await ethers.getSigners();
 
         const Bloodz = await ethers.getContractFactory("Bloodz");
         bznft = await Bloodz.deploy();
@@ -47,11 +48,13 @@ describe("Bloodz CONTRACT", function() {
         expect(await bznft.ownerOf(1)).to.equal(accounts[1]);
     })
 
-    it('SHOULD TRANSFER TOKEN OWNERSHIP AND RETURN CORRECT BALANCE FOR ACCOUNTS 2', async function () { 
-        // await bznft.transferFrom(accounts[1], accounts[2], 1, {from: accounts[1]});
+    it('SHOULD TRANSFER TOKEN OWNERSHIP AND RETURN CORRECT BALANCE FOR ACCOUNT 2', async function () { 
         await bznft.connect(addr1).transferFrom(accounts[1], accounts[2], 1);
-        expect(BigInt(await bznft.balanceOf(accounts[1])).toString()).to.equal("7");
         expect(BigInt(await bznft.balanceOf(accounts[2])).toString()).to.equal("3");    
     })
 
+    it('SHOULD TRANSFER TOKEN OWNERSHIP AND RETURN CORRECT BALANCE FOR ACCOUNT 1', async function () { 
+        await bznft.connect(addr2).transferFrom(accounts[2], accounts[1], 1);
+        expect(BigInt(await bznft.balanceOf(accounts[1])).toString()).to.equal("8");
+    })
 });
