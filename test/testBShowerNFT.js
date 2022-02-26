@@ -3,28 +3,26 @@ const { expect } = require("chai");
 // const { ethers } = require("hardhat");
 
 describe("Bloodz CONTRACT", function() {
-    let accounts;
-    let bznft
+    var accounts;
+    var bznft;
+    var owner
+    var addr1;
     //let payment = web3.utils.toWei("0.08", "ether").toString();
   
     before(async function() {
         accounts = await web3.eth.getAccounts();
+        [owner, addr1] = await ethers.getSigners();
 
         const Bloodz = await ethers.getContractFactory("Bloodz");
         bznft = await Bloodz.deploy();
         await bznft.deployed();
 
-        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment});
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
-        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
-        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
-        await bznft.mintTo(accounts[2], { from: accounts[0]}); //, value: payment });
-        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment});
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[2], { from: accounts[0]}); //, value: payment });
-        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment});
+        await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
         await bznft.mintTo(accounts[1], { from: accounts[0]}); //, value: payment });
@@ -41,12 +39,19 @@ describe("Bloodz CONTRACT", function() {
     })
 
     it('SHOULD RETURN CORRECT BALANCE FOR ACCOUNTS 1 AND 2', async function () { 
-        expect(BigInt(await bznft.balanceOf(accounts[1])).toString()).to.equal("4");
-        expect(BigInt(await bznft.balanceOf(accounts[2])).toString()).to.equal("1");    
+        expect(BigInt(await bznft.balanceOf(accounts[1])).toString()).to.equal("8");
+        expect(BigInt(await bznft.balanceOf(accounts[2])).toString()).to.equal("2");    
     })
 
     it('SHOULD RETURN TOKEN OWNER', async function () { 
         expect(await bznft.ownerOf(1)).to.equal(accounts[1]);
+    })
+
+    it('SHOULD TRANSFER TOKEN OWNERSHIP AND RETURN CORRECT BALANCE FOR ACCOUNTS 2', async function () { 
+        // await bznft.transferFrom(accounts[1], accounts[2], 1, {from: accounts[1]});
+        await bznft.connect(addr1).transferFrom(accounts[1], accounts[2], 1);
+        expect(BigInt(await bznft.balanceOf(accounts[1])).toString()).to.equal("7");
+        expect(BigInt(await bznft.balanceOf(accounts[2])).toString()).to.equal("3");    
     })
 
 });
